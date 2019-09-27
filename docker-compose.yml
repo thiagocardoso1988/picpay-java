@@ -1,17 +1,17 @@
 version: '3.4'
 services:
-  users-api-java:
-    container_name: users-api-java
-    build:
-      context: .
-      dockerfile: users.Dockerfile
-    depends_on:
-      - users-db-mysql
-    ports:
-      - "8000:8000"
-    environment:
-      - NOOP=
-      - DB_URL=users-db-mysql:3306
+#  users-api-java:
+#    container_name: users-api-java
+#    build:
+#      context: .
+#      dockerfile: users.Dockerfile
+#    depends_on:
+#      - users-db-mysql
+#    ports:
+#      - "8000:8000"
+#    environment:
+#      - NOOP=
+#      - DB_URL=users-db-mysql:3306
 
   users-db-mysql:
     container_name: users-db-mysql
@@ -21,5 +21,5 @@ services:
     ports:
       - "3306:3306"
     environment:
-      - MYSQL_DATABASE=users
+      - MYSQL_DATABASE=picpay
       - MYSQL_ROOT_PASSWORD=root

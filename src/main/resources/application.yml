@@ -1,20 +1,26 @@
 server.port: 8000
 
-
 spring:
   application:
     name: users
   jackson:
     property-naming-strategy: SNAKE_CASE
   datasource:
-    url: jdbc:mysql://root:root@${DB_URL:localhost}/users?useSsl=false
-    username: root
-    password: root
+    url: jdbc:mysql://root:root@${DB_URL:localhost}/picpay?useSsl=false
   jpa:
     show-sql: true
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-hibernate:
-  format_sql: true
-  ddl-auto: update
+        format_sql: true
+    hibernate:
+      format_sql: true
+      ddl-auto: update
+  logging:
+    level:
+      org:
+        hibernate:
+          SQL: debug
+
+
